@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugersNet - Learn Programming from Scratch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="text-2xl">🐛</div>
+                    <h1 class="text-2xl font-bold">BugersNet</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#languages" class="hover:text-blue-200 transition-colors">Languages</a>
+                    <a href="#practice" class="hover:text-blue-200 transition-colors">Practice</a>
+                    <a href="#progress" class="hover:text-blue-200 transition-colors">Progress</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h2 class="text-5xl font-bold mb-6">Master Programming from Zero to Hero</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Learn any programming language with interactive lessons, hands-on practice, and real-time feedback. Start your coding journey today!</p>
+            <button onclick="scrollToLanguages()" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                Start Learning Now 🚀
+            </button>
+        </div>
+    </header>
+
+    <!-- Programming Languages Section -->
+    <section id="languages" class="py-16">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Choose Your Programming Language</h3>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Python -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="selectLanguage('Python')">
+                    <div class="text-4xl mb-4">🐍</div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Python</h4>
+                    <p class="text-gray-600 mb-4">Perfect for beginners! Learn data science, web development, and automation.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">Beginner Friendly</span>
+                        <span class="text-purple-600 font-semibold">Start →</span>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="selectLanguage('JavaScript')">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">JavaScript</h4>
+                    <p class="text-gray-600 mb-4">Build interactive websites and modern web applications from scratch.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Web Essential</span>
+                        <span class="text-purple-600 font-semibold">Start →</span>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="selectLanguage('Java')">
+                    <div class="text-4xl mb-4">☕</div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Java</h4>
+                    <p class="text-gray-600 mb-4">Enterprise applications, Android development, and object-oriented programming.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm bg-orange-100 text-orange-800 px-3 py-1 rounded-full">Industry Standard</span>
+                        <span class="text-purple-600 font-semibold">Start →</span>
+                    </div>
+                </div>
+
+                <!-- C++ -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="selectLanguage('C++')">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">C++</h4>
+                    <p class="text-gray-600 mb-4">System programming, game development, and performance-critical applications.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm bg-red-100 text-red-800 px-3 py-1 rounded-full">Performance</span>
+                        <span class="text-purple-600 font-semibold">Start →</span>
+                    </div>
+                </div>
+
+                <!-- HTML/CSS -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="selectLanguage('HTML/CSS')">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">HTML/CSS</h4>
+                    <p class="text-gray-600 mb-4">Foundation of web development. Create beautiful, responsive websites.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm bg-pink-100 text-pink-800 px-3 py-1 rounded-full">Web Foundation</span>
+                        <span class="text-purple-600 font-semibold">Start →</span>
+                    </div>
+                </div>
+
+                <!-- Swift -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover cursor-pointer" onclick="selectLanguage('Swift')">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h4 class="text-xl font-semibold mb-3 text-gray-800">Swift</h4>
+                    <p class="text-gray-600 mb-4">iOS and macOS app development with Apple's modern programming language.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full">iOS Development</span>
+                        <span class="text-purple-600 font-semibold">Start →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Learning Section -->
+    <section id="practice" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold mb-4 text-gray-800">Interactive Learning Experience</h3>
+                <p class="text-xl text-gray-600">Practice coding with real-time feedback and guided exercises</p>
+            </div>
+
+            <!-- Code Editor Demo -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 px-4 py-2 flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <span class="text-gray-400 ml-4" id="current-language">Python - Hello World</span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-white mb-3 font-semibold">Code Editor</h4>
+                                <textarea id="code-editor" class="w-full h-40 bg-gray-800 text-green-400 p-4 rounded font-mono text-sm resize-none" placeholder="Write your code here...">print("Hello, World!")
+print("Welcome to BugersNet!")
+
+# Try changing this message
+name = "Programmer"
+print(f"Hello, {name}!")</textarea>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-white mb-3 font-semibold">Output</h4>
+                                <div id="output" class="w-full h-40 bg-black text-green-400 p-4 rounded font-mono text-sm overflow-auto">
+                                    Hello, World!<br>
+                                    Welcome to BugersNet!<br>
+                                    Hello, Programmer!
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 flex space-x-4">
+                            <button onclick="runCode()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                ▶️ Run Code
+                            </button>
+                            <button onclick="resetCode()" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                🔄 Reset
+                            </button>
+                            <button onclick="nextLesson()" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                Next Lesson →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracking -->
+    <section id="progress" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-800">Track Your Progress</h3>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h4 class="text-xl font-semibold mb-2">Lessons Completed</h4>
+                    <div class="text-3xl font-bold text-purple-600 mb-2" id="lessons-completed">12</div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-purple-600 h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">60% Complete</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="text-3xl mb-4">🏆</div>
+                    <h4 class="text-xl font-semibold mb-2">Achievements</h4>
+                    <div class="text-3xl font-bold text-green-600 mb-2" id="achievements">8</div>
+                    <div class="flex justify-center space-x-1 mt-2">
+                        <span class="text-yellow-500">🥇</span>
+                        <span class="text-gray-400">🥈</span>
+                        <span class="text-orange-500">🥉</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Keep going!</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center shadow-lg">
+                    <div class="text-3xl mb-4">⚡</div>
+                    <h4 class="text-xl font-semibold mb-2">Streak</h4>
+                    <div class="text-3xl font-bold text-orange-600 mb-2" id="streak">5</div>
+                    <p class="text-sm text-gray-600">Days in a row</p>
+                    <button onclick="updateStreak()" class="mt-3 bg-orange-600 hover:bg-orange-700 text-white px-4 py-1 rounded-full text-sm transition-colors">
+                        Practice Today
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="text-2xl">🐛</div>
+                        <h4 class="text-xl font-bold">BugersNet</h4>
+                    </div>
+                    <p class="text-gray-400">Empowering the next generation of programmers with interactive learning experiences.</p>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Languages</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Python</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">JavaScript</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Java</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">C++</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Resources</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="font-semibold mb-4">Connect</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Discord</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 BugersNet. Made with ❤️ for aspiring programmers worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLanguage = 'Python';
+        let lessonCount = 12;
+        let achievementCount = 8;
+        let streakCount = 5;
+
+        const codeExamples = {
+            'Python': `print("Hello, World!")
+print("Welcome to BugersNet!")
+
+# Try changing this message
+name = "Programmer"
+print(f"Hello, {name}!")`,
+            
+            'JavaScript': `console.log("Hello, World!");
+console.log("Welcome to BugersNet!");
+
+// Try changing this message
+let name = "Programmer";
+console.log(\`Hello, \${name}!\`);`,
+            
+            'Java': `public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        System.out.println("Welcome to BugersNet!");
+        
+        String name = "Programmer";
+        System.out.println("Hello, " + name + "!");
+    }
+}`,
+            
+            'C++': `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    cout << "Welcome to BugersNet!" << endl;
+    
+    string name = "Programmer";
+    cout << "Hello, " + name + "!" << endl;
+    return 0;
+}`,
+            
+            'HTML/CSS': `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        h1 { color: #667eea; }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>Welcome to BugersNet!</p>
+</body>
+</html>`,
+            
+            'Swift': `import Foundation
+
+print("Hello, World!")
+print("Welcome to BugersNet!")
+
+// Try changing this message
+let name = "Programmer"
+print("Hello, \\(name)!")`
+        };
+
+        function scrollToLanguages() {
+            document.getElementById('languages').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectLanguage(language) {
+            currentLanguage = language;
+            document.getElementById('current-language').textContent = `${language} - Hello World`;
+            document.getElementById('code-editor').value = codeExamples[language];
+            
+            // Simulate output based on language
+            let output = '';
+            if (language === 'HTML/CSS') {
+                output = 'HTML page rendered successfully!<br>Check the preview to see your webpage.';
+            } else {
+                output = 'Hello, World!<br>Welcome to BugersNet!<br>Hello, Programmer!';
+            }
+            document.getElementById('output').innerHTML = output;
+            
+            // Scroll to practice section
+            document.getElementById('practice').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function runCode() {
+            const code = document.getElementById('code-editor').value;
+            const output = document.getElementById('output');
+            
+            // Simulate code execution
+            if (code.trim() === '') {
+                output.innerHTML = '<span style="color: #ff6b6b;">Error: No code to run!</span>';
+                return;
+            }
+            
+            // Simple simulation based on common patterns
+            let result = '';
+            const lines = code.split('\n');
+            
+            lines.forEach(line => {
+                if (line.includes('print(') || line.includes('console.log(') || line.includes('System.out.println(') || line.includes('cout <<')) {
+                    // Extract content between quotes or parentheses
+                    const match = line.match(/["'`]([^"'`]*)["'`]/);
+                    if (match) {
+                        result += match[1] + '<br>';
+                    } else if (line.includes('Hello')) {
+                        result += 'Hello, World!<br>';
+                    }
+                }
+            });
+            
+            if (result === '') {
+                result = 'Code executed successfully!<br>Output depends on your program logic.';
+            }
+            
+            output.innerHTML = result;
+            
+            // Update progress
+            lessonCount++;
+            document.getElementById('lessons-completed').textContent = lessonCount;
+        }
+
+        function resetCode() {
+            document.getElementById('code-editor').value = codeExamples[currentLanguage];
+            document.getElementById('output').innerHTML = 'Hello, World!<br>Welcome to BugersNet!<br>Hello, Programmer!';
+        }
+
+        function nextLesson() {
+            lessonCount++;
+            document.getElementById('lessons-completed').textContent = lessonCount;
+            
+            const lessons = [
+                'Variables and Data Types',
+                'Control Structures',
+                'Functions and Methods',
+                'Object-Oriented Programming',
+                'Error Handling',
+                'File Operations'
+            ];
+            
+            const randomLesson = lessons[Math.floor(Math.random() * lessons.length)];
+            document.getElementById('current-language').textContent = `${currentLanguage} - ${r
