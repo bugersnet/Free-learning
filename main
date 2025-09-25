@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUGERSNET C++ Professional Lessons</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Share Tech Mono', monospace; background-color: #0d0d0d; color: #00ff00; padding: 20px; margin:0; }
+h1 { text-align:center; margin-bottom:40px; }
+.lesson { margin-bottom:30px; border:2px solid #0f0; padding:15px; border-radius:8px; background-color:#111; }
+code { display:block; background-color:#222; padding:10px; border-radius:5px; overflow-x:auto; white-space:pre; margin-top:10px; }
+footer { text-align:center; padding:15px; margin-top:30px; border-top:1px solid #0f0; }
+a { color:#0f0; text-decoration:none; }
+a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<h1>BUGERSNET C++ Professional Lessons</h1>
+
+<div id="lessons"></div>
+
+<footer>
+Community: <a href="https://www.instagram.com/bugersnetofficial" target="_blank">BUGERSNET Official</a> | 
+Owner: <a href="https://www.instagram.com/_nynoah_" target="_blank">_nynoah_</a>
+</footer>
+
+<script>
+const lessons = [
+{q:"Lesson 1: Object-Oriented Programming", a:'#include<iostream>\nclass Car { public: std::string brand; void drive(){ std::cout<<"Driving "<<brand; } };\nint main(){ Car c; c.brand="BugersNet"; c.drive(); return 0; }'},
+{q:"Lesson 2: Constructors and Destructors", a:'#include<iostream>\nclass Car { public: std::string brand; Car(){ brand="BugersNet"; std::cout<<"Constructed "; } ~Car(){ std::cout<<"Destroyed"; } };\nint main(){ Car c; return 0; }'},
+{q:"Lesson 3: Inheritance", a:'#include<iostream>\nclass Vehicle { public: void move(){ std::cout<<"Moving"; } };\nclass Car: public Vehicle {};\nint main(){ Car c; c.move(); return 0; }'},
+{q:"Lesson 4: Polymorphism", a:'#include<iostream>\nclass Vehicle { public: virtual void move(){ std::cout<<"Vehicle moving"; } };\nclass Car: public Vehicle { public: void move(){ std::cout<<"Car moving"; } };\nint main(){ Vehicle* v=new Car(); v->move(); delete v; return 0; }'},
+{q:"Lesson 5: Operator Overloading", a:'#include<iostream>\nclass Number { public: int x; Number(int a){x=a;} Number operator+(Number n){ return Number(x+n.x); } };\nint main(){ Number a(5),b(10); Number c=a+b; std::cout<<c.x; return 0; }'},
+{q:"Lesson 6: Templates", a:'#include<iostream>\ntemplate<typename T>\nT add(T a,T b){ return a+b; }\nint main(){ std::cout<<add<int>(5,10); return 0; }'},
+{q:"Lesson 7: Exception Handling", a:'#include<iostream>\nint main(){ try{ throw 5; } catch(int e){ std::cout<<"Caught "<<e; } return 0; }'},
+{q:"Lesson 8: Namespaces", a:'#include<iostream>\nnamespace BugersNet{ void say(){ std::cout<<"Hello"; } }\nint main(){ BugersNet::say(); return 0; }'},
+{q:"Lesson 9: Smart Pointers", a:'#include<iostream>\n#include<memory>\nint main(){ std::unique_ptr<int> p=std::make_unique<int>(5); std::cout<<*p; return 0; }'},
+{q:"Lesson 10: STL Vectors", a:'#include<iostream>\n#include<vector>\nint main(){ std::vector<int> v={1,2,3}; v.push_back(4); for(auto i:v) std::cout<<i<<" "; return 0; }'},
+{q:"Lesson 11: STL Maps", a:'#include<iostream>\n#include<map>\nint main(){ std::map<std::string,int> m; m["BugersNet"]=1; std::cout<<m["BugersNet"]; return 0; }'},
+{q:"Lesson 12: STL Sets", a:'#include<iostream>\n#include<set>\nint main(){ std::set<int> s={5,1,3}; for(auto i:s) std::cout<<i<<" "; return 0; }'},
+{q:"Lesson 13: File Handling", a:'#include<iostream>\n#include<fstream>\nint main(){ std::ofstream f("file.txt"); f<<"Hello BugersNet"; f.close(); return 0; }'},
+{q:"Lesson 14: Lambda Functions", a:'#include<iostream>\nint main(){ auto f=[](int a,int b){return a+b;}; std::cout<<f(5,10); return 0; }'},
+{q:"Lesson 15: Multithreading", a:'#include<iostream>\n#include<thread>\nvoid f(){ std::cout<<"Thread running"; }\nint main(){ std::thread t(f); t.join(); return 0; }'},
+{q:"Lesson 16: Move Semantics", a:'#include<iostream>\n#include<string>\nint main(){ std::string s="BugersNet"; std::string t=std::move(s); std::cout<<t; return 0; }'},
+{q:"Lesson 17: Constexpr", a:'#include<iostream>\nconstexpr int square(int x){ return x*x; }\nint main(){ std::cout<<square(5); return 0; }'},
+{q:"Lesson 18: Type Inference (auto)", a:'#include<iostream>\nint main(){ auto x=5; std::cout<<x; return 0; }'},
+{q:"Lesson 19: Dynamic Casting", a:'#include<iostream>\nclass Base{ virtual void f(){} }; class Derived:public Base{};\nint main(){ Base* b=new Derived(); Derived* d=dynamic_cast<Derived*>(b); std::cout<<(d!=nullptr); delete b; return 0; }'},
+{q:"Lesson 20: Type Casting", a:'#include<iostream>\nint main(){ double x=5.5; int y=static_cast<int>(x); std::cout<<y; return 0; }'},
+{q:"Lesson 21: Friend Functions", a:'#include<iostream>\nclass Car{ int speed; public: Car(){speed=50;} friend void showSpeed(Car c); };\nvoid showSpeed(Car c){ std::cout<<c.speed; }\nint main(){ Car c; showSpeed(c); return 0; }'},
+{q:"Lesson 22: Abstract Classes", a:'#include<iostream>\nclass Vehicle{ public: virtual void move()=0; };\nclass Car: public Vehicle{ public: void move(){ std::cout<<"Car moving"; } };\nint main(){ Car c; c.move(); return 0; }'},
+{q:"Lesson 23: Virtual Destructors", a:'#include<iostream>\nclass Base{ public: virtual ~Base(){ std::cout<<"Base destroyed"; } };\nclass Derived:public Base{ ~Derived(){ std::cout<<"Derived destroyed"; } };\nint main(){ Base* b=new Derived(); delete b; return 0; }'},
+{q:"Lesson 24: RTTI (typeid)", a:'#include<iostream>\n#include<typeinfo>\nclass Base{}; class Derived:public Base{};\nint main(){ Base* b=new Derived(); std::cout<<typeid(*b).name(); delete b; return 0; }'},
+{q:"Lesson 25: Advanced STL Deque", a:'#include<iostream>\n#include<deque>\nint main(){ std::deque<int> d={1,2,3}; d.push_back(4); d.push_front(0); for(auto i:d) std::cout<<i<<" "; return 0; }'},
+{q:"Lesson 26: STL Algorithms", a:'#include<iostream>\n#include<vector>\n#include<algorithm>\nint main(){ std::vector<int> v={3,1,2}; std::sort(v.begin(),v.end()); for(auto i:v) std::cout<<i<<" "; return 0; }'},
+{q:"Lesson 27: File I/O Binary", a:'#include<iostream>\n#include<fstream>\nint main(){ std::ofstream f("file.bin",std::ios::binary); int x=123; f.write((char*)&x,sizeof(x)); f.close(); return 0; }'},
+{q:"Lesson 28: Enum Classes", a:'#include<iostream>\nenum class Color{Red, Green, Blue}; int main(){ Color c=Color::Green; std::cout<<(int)c; return 0; }'},
+{q:"Lesson 29: Variadic Templates", a:'#include<iostream>\ntemplate<typename T> void print(T t){ std::cout<<t<<" "; }\ntemplate<typename T, typename... Args> void print(T t, Args... args){ std::cout<<t<<" "; print(args...); }\nint main(){ print(1,2,3,"BugersNet"); return 0; }'},
+{q:"Lesson 30: Const Correctness", a:'#include<iostream>\nclass Car{ public: void show() const{ std::cout<<"BugersNet"; } };\nint main(){ Car c; c.show(); return 0; }'},
+{q:"Lesson 31: Mutable Keyword", a:'#include<iostream>\nclass Car{ mutable int x; public: void setX(int val) const{ x=val; } void print() const{ std::cout<<x; } };\nint main(){ const Car c; c.setX(5); c.print(); return 0; }'},
+{q:"Lesson 32: Function Pointers", a:'#include<iostream>\nvoid greet(){ std::cout<<"Hello BugersNet"; }\nint main(){ void(*fp)()=greet; fp(); return 0; }'},
+{q:"Lesson 33: Member Function Pointers", a:'#include<iostream>\nclass Car{ public: void drive(){ std::cout<<"Driving"; } };\nint main(){ void(Car::*fp)()=&Car::drive; Car c; (c.*fp)(); return 0; }'},
+{q:"Lesson 34: Advanced Inheritance (Multiple)", a:'#include<iostream>\nclass A{public: void f(){ std::cout<<"A"; }};\nclass B{public: void g(){ std::cout<<"B"; }};\nclass C: public A, public B{};\nint main(){ C c; c.f(); c.g(); return 0; }'},
+{q:"Lesson 35: Diamond Problem & Virtual Inheritance", a:'#include<iostream>\nclass A{public: void f(){ std::cout<<"A"; }};\nclass B: virtual public A{};\nclass C: virtual public A{};\nclass D: public B, public C{};\nint main(){ D d; d.f(); return 0; }'},
+{q:"Lesson 36: Dynamic Arrays", a:'#include<iostream>\nint main(){ int* arr=new int[5]; for(int i=0;i<5;i++) arr[i]=i; delete[] arr; return 0; }'},
+{q:"Lesson 37: Move Constructor", a:'#include<iostream>\n#include<string>\nclass Car{ public: std::string name; Car(std::string n):name(n){} Car(Car&& c){ name=std::move(c.name); } };\nint main(){ Car c1("BugersNet"); Car c2(std::move(c1)); std::cout<<c2.name; return 0; }'},
+{q:"Lesson 38: Explicit Keyword", a:'#include<iostream>\nclass Car{ public: explicit Car(int x){} };\nint main(){ Car c2(5); return 0; }'},
+{q:"Lesson 39: noexcept", a:'#include<iostream>\nvoid f() noexcept{ std::cout<<"Safe"; }\nint main(){ f(); return 0; }'},
+{q:"Lesson 40: Advanced Constexpr", a:'#include<iostream>\nconstexpr int fact(int n){ return n<=1?1:n*fact(n-1); }\nint main(){ std::cout<<fact(5); return 0; }'},
+{q:"Lesson 41: User-defined Literals", a:'#include<iostream>\nconstexpr long double operator"" _cm(long double x){ return x*10; }\nint main(){ std::cout<<10.0_cm; return 0; }'},
+{q:"Lesson 42: Type Traits", a:'#include<iostream>\n#include<type_traits>\nint main(){ std::cout<<std::is_integral<int>::value; return 0; }'},
+{q:"Lesson 43: STL Unordered Map", a:'#include<iostream>\n#include<unordered_map>\nint main(){ std::unordered_map<std::string,int> m; m["BugersNet"]=1; std::cout<<m["BugersNet"]; return 0; }'},
+{q:"Lesson 44: STL Priority Queue", a:'#include<iostream>\n#include<queue>\nint main(){ std::priority_queue<int> pq; pq.push(5); pq.push(1); pq.push(10); std::cout<<pq.top(); return 0; }'},
+{q:"Lesson 45: STL Set Custom Comparator", a:'#include<iostream>\n#include<set>\nstruct cmp{ bool operator()(int a,int b){ return a>b; } };\nint main(){ std::set<int,cmp> s={1,3,2}; for(auto i:s) std::cout<<i<<" "; return 0; }'},
+{q:"Lesson 46: Bit Fields", a:'#include<iostream>\nstruct Car{ unsigned int speed:4; };\nint main(){ Car c; c.speed=7; std::cout<<c.speed; return 0; }'},
+{q:"Lesson 47: Pointer to Pointer", a:'#include<iostream>\nint main(){ int x=5; int *p=&x; int **pp=&p; std::cout<<**pp; return 0; }'},
+{q:"Lesson 48: Function Objects", a:'#include<iostream>\nclass Add{ public: int operator()(int a,int b){ return a+b; } };\nint main(){ Add add; std::cout<<add(2,3); return 0; }'},
+{q:"Lesson 49: CRTP (Curiously Recurring Template Pattern)", a:'#include<iostream>\ntemplate<class T>\nclass Base{ public: void interface(){ static_cast<T*>(this)->implementation(); } };\nclass Derived: public Base<Derived>{ public: void implementation(){ std::cout<<"BugersNet"; } };\nint main(){ Derived d; d.interface(); return 0; }'},
+{q:"Lesson 50: Advanced Lambda Capture", a:'#include<iostream>\nint main(){ int x=5;\nauto f=[x](int y){ return x+y; };\nstd::cout<<f(10); return 0; }'}
+];
+
+const lessonsDiv = document.getElementById("lessons");
+lessons.forEach((lesson)=>{
+  const div=document.createElement("div");
+  div.className="lesson";
+  div.innerHTML=`<h2>${lesson.q}</h2><code>${lesson.a}</code>`;
+  lessonsDiv.appendChild(div);
+});
+</script>
+
+</body>
+</html>
